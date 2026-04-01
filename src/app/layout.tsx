@@ -1,18 +1,19 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Jost } from 'next/font/google'
+import { Space_Grotesk, Inter } from 'next/font/google'
 import './globals.css'
+import TopBar from '@/components/TopBar'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import MobileStickyBar from '@/components/MobileStickyBar'
 
-const playfair = Playfair_Display({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-heading',
   display: 'swap',
   weight: ['400', '500', '600', '700'],
 })
 
-const jost = Jost({
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
@@ -69,7 +70,7 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="fr" className={`${playfair.variable} ${jost.variable}`}>
+    <html lang="fr" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -77,6 +78,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <TopBar />
         <Header />
         <main>{children}</main>
         <Footer />

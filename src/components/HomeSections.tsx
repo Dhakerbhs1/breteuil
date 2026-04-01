@@ -1,110 +1,111 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { useReveal } from '@/lib/hooks'
-import styles from './HomePage.module.css'
+import styles from './Home.module.css'
 
-/* ═══════════════════════════ HERO ═══════════════════════════ */
+/* ═══════════════════════════════════════════════════════
+   DESIGN PHILOSOPHY — BOLD GEOMETRIC
+   
+   vs Briand (editorial serif splitscreen):
+   - NO splitscreen hero → full-width centered gradient hero
+   - NO serif fonts → geometric sans-serif (Space Grotesk)
+   - NO timeline layout → icon grid cards
+   - NO tab formulas → horizontal scroll 3 cards
+   - NO editorial badges → pill tags
+   - NO cream/beige backgrounds → clean white/gray
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Arrow icon ── */
+const Arrow = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+  </svg>
+)
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 1 — HERO (full-width centered, NOT splitscreen)
+   Gradient background, large centered text + 2 CTAs
+   Completely different from Briand's left/right split
+   ═══════════════════════════════════════════════════════ */
 export function Hero() {
   return (
-    <section className={styles.hero} id="hero">
-      <div className={styles.heroOverlay} />
+    <section className={styles.hero}>
+      <div className={styles.heroGradient} />
       <div className={styles.heroContent}>
-        <p className={styles.heroLabel}>Breteuil Déménagement</p>
+        <div className={styles.heroPill}>
+          <span className={styles.heroPillDot} />
+          Devis gratuit · Réponse rapide
+        </div>
         <h1 className={styles.heroTitle}>
-          L&apos;art de déménager<br />
-          <em>en toute sérénité</em>
+          Déménagez<br />
+          en toute simplicité<span className={styles.heroDot}>.</span>
         </h1>
-        <p className={styles.heroSubtitle}>
-          Votre déménagement mérite une attention particulière.<br className="hide-mobile" />
-          Devis gratuit · Partout en France
+        <p className={styles.heroSub}>
+          Breteuil Déménagement prend en charge votre projet de A&nbsp;à&nbsp;Z.
+          Particuliers et professionnels, partout en France.
         </p>
         <div className={styles.heroCtas}>
-          <Link href="/devis" className="btn btn--primary btn--large" id="hero-cta">
-            Demander un devis
-            <ArrowRight />
+          <Link href="/devis" className={styles.heroCtaPrimary} id="hero-cta">
+            Obtenir mon devis gratuit
+            <Arrow />
           </Link>
-          <Link href="/#services" className="btn btn--ghost btn--large" id="hero-services">
-            Découvrir nos services
-          </Link>
+          <a href="tel:+33100000000" className={styles.heroCtaSecondary}>
+            Nous appeler
+          </a>
         </div>
       </div>
-      <div className={styles.heroScroll}>
-        <div className={styles.scrollLine} />
+      {/* Floating stats bar */}
+      <div className={styles.heroStats}>
+        <div className={styles.heroStat}>
+          <strong>France entière</strong>
+          <span>Zone d&apos;intervention</span>
+        </div>
+        <div className={styles.heroStatDivider} />
+        <div className={styles.heroStat}>
+          <strong>3 formules</strong>
+          <span>Éco · Confort · Luxe</span>
+        </div>
+        <div className={styles.heroStatDivider} />
+        <div className={styles.heroStat}>
+          <strong>Sans engagement</strong>
+          <span>Devis personnalisé</span>
+        </div>
       </div>
     </section>
   )
 }
 
-/* ═══════════════════════════ STATEMENT ═══════════════════════ */
-export function Statement() {
-  const { ref, visible } = useReveal()
-  return (
-    <section className={`section ${styles.statement}`}>
-      <div className="container container--narrow" ref={ref}>
-        <blockquote className={`${styles.quote} ${visible ? styles.quoteVisible : ''}`}>
-          <span className={styles.quoteMark}>&ldquo;</span>
-          Chaque déménagement est un nouveau chapitre.
-          Notre rôle est de vous permettre de le commencer
-          <em> l&apos;esprit léger.</em>
-        </blockquote>
-      </div>
-    </section>
-  )
-}
-
-/* ═══════════════════════════ SERVICES ════════════════════════ */
+/* ═══════════════════════════════════════════════════════
+   SECTION 2 — SERVICES (icon grid 3x2, NOT timeline)
+   Simple card grid with icons, not numbered list
+   ═══════════════════════════════════════════════════════ */
 const services = [
-  {
-    title: 'Résidentiel',
-    desc: 'Maison, appartement, studio — une prise en charge complète avec soin.',
-    href: '/services/demenagement-residentiel',
-    icon: '🏠',
-  },
-  {
-    title: 'Professionnel',
-    desc: 'Bureau, commerce ou entrepôt. Intervention adaptée pour limiter les interruptions.',
-    href: '/services/demenagement-professionnel',
-    icon: '🏢',
-  },
-  {
-    title: 'International',
-    desc: 'Europe et monde entier. Logistique complète et accompagnement personnalisé.',
-    href: '/services/demenagement-international',
-    icon: '✈️',
-  },
-  {
-    title: 'Emballage',
-    desc: 'Service d&apos;emballage professionnel, disponible selon la formule choisie.',
-    href: '/services/emballage',
-    icon: '📦',
-  },
-  {
-    title: 'Monte-meuble',
-    desc: 'Accès difficile ? Montée ou descente par la façade en toute sécurité.',
-    href: '/services/monte-meuble',
-    icon: '🏗️',
-  },
-  {
-    title: 'Garde-meuble',
-    desc: 'Stockage sécurisé avec prise en charge complète. Location flexible.',
-    href: '/services/garde-meuble',
-    icon: '🔐',
-  },
+  { icon: '🏠', title: 'Résidentiel', desc: 'Maison, appartement, studio — du chargement à l\'installation dans votre nouveau logement.', href: '/services/demenagement-residentiel' },
+  { icon: '🏢', title: 'Professionnel', desc: 'Bureau, commerce, entrepôt. Organisation logistique adaptée pour minimiser l\'impact sur votre activité.', href: '/services/demenagement-professionnel' },
+  { icon: '✈️', title: 'International', desc: 'Europe et au-delà. Logistique complète et accompagnement personnalisé de porte à porte.', href: '/services/demenagement-international' },
+  { icon: '📦', title: 'Emballage', desc: 'Emballage professionnel disponible selon la formule choisie. Protection adaptée à chaque bien.', href: '/services/emballage' },
+  { icon: '🏗️', title: 'Monte-meuble', desc: 'Accès difficile ? Montée ou descente par la façade en toute sécurité.', href: '/services/monte-meuble' },
+  { icon: '🔐', title: 'Garde-meuble', desc: 'Stockage sécurisé, location flexible à la semaine ou au mois, prise en charge complète.', href: '/services/garde-meuble' },
 ]
 
 export function Services() {
   return (
-    <section className={`section ${styles.services}`} id="services">
-      <div className="container">
+    <section className={styles.services} id="services">
+      <div className={styles.servicesInner}>
         <div className={styles.servicesHeader}>
           <span className="section-label">Nos services</span>
-          <h2>Une prestation<br /><em>pour chaque besoin</em></h2>
+          <h2>Tout ce qu&apos;il faut pour<br />votre déménagement<span className={styles.dot}>.</span></h2>
+          <p className={styles.servicesSubtext}>Chaque prestation est adaptée à votre situation. Départ, arrivée, volume, accès — on s&apos;adapte.</p>
         </div>
-        <div className={styles.servicesScroll}>
-          {services.map((svc, i) => (
-            <ServiceCard key={svc.href} service={svc} index={i} />
+        <div className={styles.servicesGrid}>
+          {services.map((svc) => (
+            <Link key={svc.href} href={svc.href} className={styles.serviceCard}>
+              <span className={styles.serviceIcon}>{svc.icon}</span>
+              <h3>{svc.title}</h3>
+              <p>{svc.desc}</p>
+              <span className={styles.serviceLink}>En savoir plus <Arrow /></span>
+            </Link>
           ))}
         </div>
       </div>
@@ -112,194 +113,172 @@ export function Services() {
   )
 }
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
-  const { ref, visible } = useReveal(0.1)
+/* ═══════════════════════════════════════════════════════
+   SECTION 3 — COMMENT ÇA MARCHE (horizontal 3 steps, NOT timeline)
+   3 numbered cards side by side, not vertical timeline
+   ═══════════════════════════════════════════════════════ */
+export function HowItWorks() {
   return (
-    <div
-      ref={ref}
-      className={`${styles.serviceCard} ${visible ? styles.serviceCardVisible : ''}`}
-      style={{ transitionDelay: `${index * 0.08}s` }}
-    >
-      <span className={styles.serviceIcon}>{service.icon}</span>
-      <h3 className={styles.serviceTitle}>{service.title}</h3>
-      <p className={styles.serviceDesc} dangerouslySetInnerHTML={{ __html: service.desc }} />
-      <Link href={service.href} className={styles.serviceLink}>
-        En savoir plus <ArrowRight size={14} />
-      </Link>
-    </div>
-  )
-}
-
-/* ═══════════════════════════ TRUST ═══════════════════════════ */
-const trustPoints = [
-  { title: 'Devis détaillé', desc: 'Proposition claire et sans engagement, adaptée à votre situation.', icon: '◎' },
-  { title: 'Équipe professionnelle', desc: 'Déménageurs déclarés et formés, un interlocuteur dédié.', icon: '◉' },
-  { title: 'Protection de vos biens', desc: 'Vos biens sont protégés avec soin pendant toute la prestation.', icon: '◈' },
-  { title: 'Partout en France', desc: 'Interventions locales, nationales et internationales.', icon: '◇' },
-]
-
-export function Trust() {
-  const { ref, visible } = useReveal()
-  return (
-    <section className={`section section--dark ${styles.trust}`}>
-      <div className="container" ref={ref}>
-        <div className={`${styles.trustGrid} ${visible ? styles.trustGridVisible : ''}`}>
-          <div className={styles.trustText}>
-            <span className="section-label">Nos engagements</span>
-            <h2>Votre déménagement est<br /><em>entre de bonnes mains</em></h2>
-            <p className={styles.trustDesc}>
-              Breteuil Déménagement accompagne particuliers et entreprises
-              dans chaque étape de leur projet. Un interlocuteur unique,
-              une équipe formée, un devis clair.
-            </p>
-            <Link href="/a-propos" className="btn btn--ghost" style={{ marginTop: '1.5rem' }}>
-              En savoir plus sur nous
-            </Link>
-          </div>
-          <div className={styles.trustCards}>
-            {trustPoints.map((tp, i) => (
-              <div key={i} className={styles.trustCard} style={{ transitionDelay: `${i * 0.1 + 0.2}s` }}>
-                <span className={styles.trustIcon}>{tp.icon}</span>
-                <div>
-                  <h4 className={styles.trustTitle}>{tp.title}</h4>
-                  <p className={styles.trustCardDesc}>{tp.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+    <section className={styles.how}>
+      <div className={styles.howInner}>
+        <div className={styles.howHeader}>
+          <span className="section-label">Comment ça marche</span>
+          <h2>Simple, rapide, efficace<span className={styles.dot}>.</span></h2>
+        </div>
+        <div className={styles.howCards}>
+          {[
+            { num: '1', title: 'Décrivez votre projet', text: 'Remplissez le formulaire en ligne ou appelez-nous. Indiquez vos villes de départ et d\'arrivée, votre volume et vos besoins spécifiques.' },
+            { num: '2', title: 'Recevez votre devis', text: 'Un conseiller dédié étudie votre demande et vous propose un devis détaillé, clair et personnalisé. Sans engagement.' },
+            { num: '3', title: 'On s\'occupe du reste', text: 'Jour J : notre équipe arrive, protège, charge, transporte et installe vos biens dans votre nouveau chez-vous.' },
+          ].map((step) => (
+            <HowCard key={step.num} step={step} />
+          ))}
         </div>
       </div>
     </section>
   )
 }
 
-/* ═══════════════════════════ PROCESS ═════════════════════════ */
-const steps = [
+function HowCard({ step }: { step: { num: string; title: string; text: string } }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [vis, setVis] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVis(true); io.unobserve(el) } }, { threshold: 0.2 })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+  return (
+    <div ref={ref} className={`${styles.howCard} ${vis ? styles.howCardVis : ''}`}>
+      <div className={styles.howNum}>{step.num}</div>
+      <h3>{step.title}</h3>
+      <p>{step.text}</p>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 4 — FORMULES (3 cards côte à côte, NOT tabs)
+   Cards with different background shading, not tab switching
+   ═══════════════════════════════════════════════════════ */
+const formulas = [
   {
-    num: '01',
-    title: 'Remplissez le formulaire',
-    desc: 'Indiquez vos villes de départ et d\'arrivée, votre numéro de téléphone. Votre demande est transmise immédiatement.',
+    name: 'Économique', tagline: 'L\'essentiel, maîtrisé.',
+    items: ['Housse de protection matelas', 'Protection mobilier (housses & couvertures)', 'Chargement & transport camion', 'Remise en place dans chaque pièce'],
+    featured: false,
   },
   {
-    num: '02',
-    title: 'Recevez votre devis',
-    desc: 'Un conseiller vous rappelle rapidement. Il évalue votre volume, vos accès et construit votre devis sur mesure.',
+    name: 'Confort', tagline: 'Le plus demandé.',
+    items: ['Tout Économique inclus', 'Livraison cartons & adhésifs', 'Emballage & déballage fragiles', 'Démontage & remontage mobilier', 'Mise en penderie vêtements'],
+    featured: true,
   },
   {
-    num: '03',
-    title: 'Confirmez votre réservation',
-    desc: 'Offre claire et détaillée. Validez votre déménagement et nous finalisons ensemble les derniers détails.',
+    name: 'Luxe', tagline: 'Vous ne touchez à rien.',
+    items: ['Tout Confort inclus', 'Emballage intégral de tous les biens', 'Prise en charge totale du processus', 'Interlocuteur dédié de bout en bout'],
+    featured: false,
   },
 ]
 
-export function Process() {
-  const { ref, visible } = useReveal()
+export function Formulas() {
   return (
-    <section className={`section section--alt ${styles.process}`} id="processus">
-      <div className="container container--narrow" ref={ref}>
-        <div className="text-center" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
-          <span className="section-label" style={{ justifyContent: 'center' }}>Comment ça marche</span>
-          <h2>Votre déménagement<br />en <em>3 étapes simples</em></h2>
+    <section className={styles.formulas} id="formules">
+      <div className={styles.formulasInner}>
+        <div className={styles.formulasHeader}>
+          <span className="section-label">Formules</span>
+          <h2>Choisissez votre niveau<br />de prise en charge<span className={styles.dot}>.</span></h2>
+          <p>Tarif toujours sur devis gratuit et personnalisé.</p>
         </div>
-        <div className={styles.timeline}>
-          <div className={styles.timelineLine} />
-          {steps.map((step, i) => (
-            <div
-              key={i}
-              className={`${styles.step} ${visible ? styles.stepVisible : ''}`}
-              style={{ transitionDelay: `${i * 0.2}s` }}
-            >
-              <div className={styles.stepDot}>
-                <span className={styles.stepNum}>{step.num}</span>
-              </div>
-              <div className={styles.stepContent}>
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
-              </div>
+        <div className={styles.formulasCards}>
+          {formulas.map((f) => (
+            <div key={f.name} className={`${styles.formulaCard} ${f.featured ? styles.formulaCardFeatured : ''}`}>
+              {f.featured && <span className={styles.formulaBadge}>Populaire</span>}
+              <h3>{f.name}</h3>
+              <p className={styles.formulaTagline}>{f.tagline}</p>
+              <ul className={styles.formulaList}>
+                {f.items.map((item, i) => (
+                  <li key={i}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/devis" className={`${styles.formulaCta} ${f.featured ? styles.formulaCtaFeatured : ''}`}>
+                Demander un devis
+                <Arrow />
+              </Link>
             </div>
           ))}
         </div>
-        <div className="text-center" style={{ marginTop: '3rem' }}>
-          <Link href="/devis" className="btn btn--primary btn--large" id="process-cta">
-            Commencer ma demande <ArrowRight />
-          </Link>
-        </div>
       </div>
     </section>
   )
 }
 
-/* ═══════════════════════════ ZONES ═══════════════════════════ */
-const zones = [
-  'Paris', 'Lyon', 'Marseille', 'Bordeaux', 'Toulouse', 'Nantes',
-  'Montpellier', 'Strasbourg', 'Lille', 'Nice', 'Rennes', 'Grenoble',
-  'Rouen', 'Toulon', 'Saint-Étienne', 'Dijon', 'Angers', 'Nîmes',
-  'Metz', 'et toute la France',
-]
-
-export function Zones() {
-  const { ref, visible } = useReveal()
+/* ═══════════════════════════════════════════════════════
+   SECTION 5 — BANDEAU CONFIANCE (horizontal, compact)
+   Instead of Briand's "philosophie" editorial long-text section
+   ═══════════════════════════════════════════════════════ */
+export function TrustBand() {
   return (
-    <section className={`section ${styles.zones}`}>
-      <div className="container" ref={ref}>
-        <div className={`${styles.zonesGrid} ${visible ? styles.zonesGridVisible : ''}`}>
-          <div>
-            <span className="section-label">Zones d&apos;intervention</span>
-            <h2>Nous intervenons<br /><em>partout en France</em></h2>
-            <p style={{ marginTop: '1rem', marginBottom: '2rem' }}>
-              Nous réalisons des déménagements dans toute la France métropolitaine
-              et à l&apos;international. Paris, Bordeaux, Lyon, Marseille — et partout entre les deux.
-            </p>
-            <Link href="/devis" className="btn btn--primary" id="zones-cta">
-              Obtenir mon devis <ArrowRight />
-            </Link>
+    <section className={styles.trust}>
+      <div className={styles.trustInner}>
+        {[
+          { icon: '📋', label: 'Devis détaillé', sub: 'Gratuit et sans engagement' },
+          { icon: '👷', label: 'Équipe formée', sub: 'Déménageurs déclarés' },
+          { icon: '🛡️', label: 'Biens protégés', sub: 'Emballage professionnel' },
+          { icon: '🇫🇷', label: 'Toute la France', sub: 'Et à l\'international' },
+        ].map((item, i) => (
+          <div key={i} className={styles.trustItem}>
+            <span className={styles.trustIcon}>{item.icon}</span>
+            <div>
+              <strong>{item.label}</strong>
+              <span>{item.sub}</span>
+            </div>
           </div>
-          <div className={styles.zonesTags}>
-            {zones.map((z) => (
-              <span key={z} className={styles.zoneTag}>{z}</span>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   )
 }
 
-/* ═══════════════════════════ FAQ ══════════════════════════════ */
-const faqs = [
-  {
-    q: 'Comment se déroule un déménagement avec Breteuil ?',
-    a: 'Vous remplissez notre formulaire en ligne, un conseiller vous rappelle rapidement pour évaluer votre volume et vos besoins, puis vous recevez un devis détaillé. Après validation, nous organisons le jour J.',
-  },
-  {
-    q: 'Quelles sont vos zones d\'intervention ?',
-    a: 'Nous intervenons dans toute la France métropolitaine pour les déménagements résidentiels et professionnels, ainsi qu\'à l\'international avec un accompagnement personnalisé.',
-  },
-  {
-    q: 'Proposez-vous un service d\'emballage ?',
-    a: 'Oui, nous proposons un service d\'emballage professionnel selon la formule choisie (Confort ou Luxe). Contactez-nous pour connaître le détail de chaque formule.',
-  },
-  {
-    q: 'Le devis est-il gratuit et sans engagement ?',
-    a: 'Oui, le devis est entièrement gratuit et sans engagement. N\'hésitez pas à nous contacter pour toute demande.',
-  },
-  {
-    q: 'Comment sont protégés mes biens pendant le transport ?',
-    a: 'Vos biens sont protégés avec soin grâce à des housses, couvertures adaptées et un calage professionnel. Le niveau de protection dépend de la formule choisie.',
-  },
+/* ═══════════════════════════════════════════════════════
+   SECTION 6 — FAQ (accordéon simple, pas grid)
+   ═══════════════════════════════════════════════════════ */
+const faqData = [
+  { q: 'Le devis est-il gratuit ?', a: 'Oui. Le devis est entièrement gratuit et sans engagement. Un conseiller vous rappelle pour l\'établir.' },
+  { q: 'Quelles sont vos zones d\'intervention ?', a: 'Nous intervenons sur toute la France métropolitaine et à l\'international.' },
+  { q: 'Proposez-vous l\'emballage ?', a: 'Oui, selon la formule choisie (Confort ou Luxe). L\'emballage des objets fragiles ou l\'emballage intégral.' },
+  { q: 'Comment sont protégés mes biens ?', a: 'Housses, couvertures et calage professionnel sont utilisés pour protéger votre mobilier pendant le transport.' },
+  { q: 'Sous quel délai recevrai-je mon devis ?', a: 'Un conseiller vous rappelle rapidement après la réception de votre demande pour établir votre devis.' },
+  { q: 'Puis-je stocker mes affaires ?', a: 'Oui, nous proposons un service de garde-meuble flexible (à la semaine ou au mois).' },
 ]
 
 export function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
   return (
-    <section className={`section section--alt ${styles.faq}`} id="faq">
-      <div className="container container--narrow">
-        <div className="text-center" style={{ marginBottom: 'clamp(2rem, 4vw, 3.5rem)' }}>
-          <span className="section-label">Questions fréquentes</span>
-          <h2>Tout ce qu&apos;il faut savoir</h2>
+    <section className={styles.faq} id="faq">
+      <div className={styles.faqInner}>
+        <div className={styles.faqHeader}>
+          <span className="section-label">FAQ</span>
+          <h2>Questions fréquentes<span className={styles.dot}>.</span></h2>
         </div>
         <div className={styles.faqList}>
-          {faqs.map((faq, i) => (
-            <FaqItem key={i} question={faq.q} answer={faq.a} />
+          {faqData.map((item, i) => (
+            <div key={i} className={`${styles.faqItem} ${openIndex === i ? styles.faqItemOpen : ''}`}>
+              <button className={styles.faqQuestion} onClick={() => setOpenIndex(openIndex === i ? null : i)} id={`faq-${i}`}>
+                <span>{item.q}</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.faqChevron}>
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              {openIndex === i && (
+                <div className={styles.faqAnswer}>
+                  <p>{item.a}</p>
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>
@@ -307,45 +286,56 @@ export function FAQ() {
   )
 }
 
-function FaqItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false)
-  const { ref, visible } = useReveal(0.1)
-
+/* ═══════════════════════════════════════════════════════
+   SECTION 7 — NOTRE HISTOIRE (La petite histoire)
+   ═══════════════════════════════════════════════════════ */
+export function OurStory() {
   return (
-    <div ref={ref} className={`${styles.faqItem} ${visible ? styles.faqItemVisible : ''} ${open ? styles.faqItemOpen : ''}`}>
-      <button className={styles.faqQuestion} onClick={() => setOpen(!open)} aria-expanded={open}>
-        <span>{question}</span>
-        <svg className={styles.faqChevron} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
-      </button>
-      <div className={styles.faqAnswer}>
-        <p>{answer}</p>
-      </div>
-    </div>
-  )
-}
-
-/* ═══════════════════════════ CTA FINAL ═══════════════════════ */
-export function CtaFinal() {
-  const { ref, visible } = useReveal()
-  return (
-    <section className={`section section--dark ${styles.ctaFinal}`}>
-      <div className="container container--narrow text-center" ref={ref}>
-        <div className={`${styles.ctaContent} ${visible ? styles.ctaContentVisible : ''}`}>
-          <span className="section-label">Prêt à déménager ?</span>
-          <h2>Commencez votre<br /><em>nouveau chapitre</em></h2>
-          <p style={{ maxWidth: '480px', margin: '1rem auto 2rem' }}>
-            Remplissez notre formulaire en quelques secondes et recevez un devis gratuit
-            adapté à votre situation.
+    <section className={styles.story} id="notre-histoire">
+      <div className={styles.storyInner}>
+        <div className={styles.storyLeft}>
+          <span className="section-label">Notre histoire</span>
+          <h2>La petite histoire<span className={styles.dot}>.</span></h2>
+          <p className={styles.storyLead}>
+            Breteuil Déménagement est née d&apos;une conviction simple : 
+            déménager ne devrait jamais être une source de stress.
           </p>
-          <div className={styles.ctaActions}>
-            <Link href="/devis" className="btn btn--primary btn--large" id="final-cta">
-              Demander un devis gratuit <ArrowRight />
-            </Link>
-            <a href="tel:+33100000000" className="btn btn--ghost btn--large">
-              Nous appeler
-            </a>
+          <p>
+            Fondée par des professionnels du transport et de la logistique, 
+            notre entreprise s&apos;est construite autour d&apos;un engagement 
+            fort — offrir un accompagnement humain et rigoureux à chaque 
+            étape de votre transition.
+          </p>
+          <p>
+            Au fil des années, nous avons développé un savoir-faire reconnu 
+            dans le déménagement résidentiel, professionnel et international. 
+            Chaque projet est unique. C&apos;est pourquoi nous prenons le temps 
+            d&apos;écouter, d&apos;organiser et de livrer un service à la hauteur 
+            de vos attentes.
+          </p>
+          <p>
+            Aujourd&apos;hui, Breteuil Déménagement intervient partout en France 
+            avec une équipe formée, un parc de véhicules adapté et trois 
+            formules pensées pour répondre à tous les besoins.
+          </p>
+        </div>
+        <div className={styles.storyRight}>
+          <div className={styles.storyVisual}>
+            <div className={styles.storyBlock1}>
+              <span>🚛</span>
+              <strong>Partout en France</strong>
+              <p>Interventions locales, régionales et nationales</p>
+            </div>
+            <div className={styles.storyBlock2}>
+              <span>🤝</span>
+              <strong>Engagement humain</strong>
+              <p>Un interlocuteur dédié du premier appel à la livraison</p>
+            </div>
+            <div className={styles.storyBlock3}>
+              <span>📦</span>
+              <strong>Savoir-faire</strong>
+              <p>Techniques d&apos;emballage et de manutention professionnelles</p>
+            </div>
           </div>
         </div>
       </div>
@@ -353,11 +343,26 @@ export function CtaFinal() {
   )
 }
 
-/* ═══════════════════════ UTILITY ICONS ═══════════════════════ */
-function ArrowRight({ size = 16 }: { size?: number }) {
+/* ═══════════════════════════════════════════════════════
+   SECTION 8 — CTA FINAL (gradient band, centered)
+   ═══════════════════════════════════════════════════════ */
+export function FinalCta() {
   return (
-    <svg className="arrow-icon" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-    </svg>
+    <section className={styles.finalCta}>
+      <div className={styles.finalCtaInner}>
+        <h2>Prêt à déménager<span className={styles.dotWhite}>?</span></h2>
+        <p>Demandez votre devis gratuit. Un conseiller vous rappelle rapidement.</p>
+        <div className={styles.finalCtaBtns}>
+          <Link href="/devis" className={styles.finalCtaPrimary} id="final-cta">
+            Demander un devis gratuit
+            <Arrow />
+          </Link>
+          <a href="tel:+33100000000" className={styles.finalCtaGhost}>
+            Nous appeler
+          </a>
+        </div>
+      </div>
+    </section>
   )
 }
+

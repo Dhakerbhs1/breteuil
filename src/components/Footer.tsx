@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './Footer.module.css'
 
 const services = [
@@ -32,11 +33,13 @@ export default function Footer() {
           {/* Brand */}
           <div className={styles.brand}>
             <Link href="/" className={styles.logo}>
-              <span className={styles.logoMark}>B</span>
-              <div>
-                <span className={styles.logoName}>Breteuil</span>
-                <span className={styles.logoSub}>Déménagement</span>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Breteuil Déménagement"
+                width={160}
+                height={45}
+                className={styles.logoImg}
+              />
             </Link>
             <p className={styles.brandDesc}>
               Déménageur professionnel intervenant partout en France.

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './ServicePage.module.css'
 
 /* ── Service data ── */
@@ -13,6 +14,9 @@ interface ServiceData {
   intro: string
   features: { title: string; desc: string }[]
   callout: string
+  /* 2 content blocks for image+text */
+  contentBlock1: { title: string; text: string; imgAlt: string; img: string }
+  contentBlock2: { title: string; text: string; imgAlt: string; img: string }
 }
 
 const servicesData: Record<string, ServiceData> = {
@@ -31,6 +35,18 @@ const servicesData: Record<string, ServiceData> = {
       { title: 'Partout en France', desc: 'Interventions locales, régionales et nationales selon vos besoins.' },
     ],
     callout: 'Obtenez un devis gratuit et sans engagement pour votre déménagement résidentiel.',
+    contentBlock1: {
+      title: 'Une protection adaptée à chaque objet',
+      text: 'Chaque meuble, chaque carton bénéficie d\'une attention particulière. Nos équipes utilisent des housses, couvertures matelassées et calages adaptés pour garantir la sécurité de vos biens pendant le transport. Les objets fragiles sont emballés individuellement selon des techniques professionnelles éprouvées.',
+      imgAlt: 'Déménageurs protégeant du mobilier avec des couvertures professionnelles',
+      img: '/img-residentiel-1.png',
+    },
+    contentBlock2: {
+      title: 'Un transport organisé et ponctuel',
+      text: 'Notre parc de véhicules est dimensionné pour s\'adapter à chaque volume. Du studio au pavillon, le camion est sélectionné selon votre inventaire pour optimiser le chargement et réduire les trajets. Le jour J, notre équipe arrive à l\'heure convenue et prend en charge l\'intégralité du processus.',
+      imgAlt: 'Camion de déménagement devant un immeuble parisien',
+      img: '/img-residentiel-2.png',
+    },
   },
   'demenagement-professionnel': {
     slug: 'demenagement-professionnel',
@@ -47,6 +63,18 @@ const servicesData: Record<string, ServiceData> = {
       { title: 'Devis clair', desc: 'Proposition détaillée et adaptée à la taille de votre entreprise.' },
     ],
     callout: 'Obtenez un devis gratuit pour le déménagement de votre entreprise.',
+    contentBlock1: {
+      title: 'Limiter l\'impact sur votre activité',
+      text: 'Un déménagement professionnel réussi, c\'est un déménagement qui ne perturbe pas votre production. Nous travaillons en amont avec vos équipes pour établir un planning précis, identifier les contraintes horaires et organiser le transfert par étapes si nécessaire. L\'objectif : une reprise d\'activité dans les meilleurs délais.',
+      imgAlt: 'Déménageurs emballant du matériel de bureau',
+      img: '/img-professionnel-1.png',
+    },
+    contentBlock2: {
+      title: 'Matériel et mobilier : une prise en charge adaptée',
+      text: 'Postes informatiques, archives, mobilier de bureau — chaque élément est manipulé avec le soin adapté. Nos équipes sont formées au démontage et au remontage du mobilier professionnel standard. Le matériel sensible bénéficie d\'un emballage renforcé pour un transport en toute sécurité.',
+      imgAlt: 'Camion de déménagement professionnel en chargement',
+      img: '/img-professionnel-2.png',
+    },
   },
   'demenagement-international': {
     slug: 'demenagement-international',
@@ -58,11 +86,23 @@ const servicesData: Record<string, ServiceData> = {
     intro: 'Europe et monde entier — un accompagnement personnalisé pour votre projet de déménagement international. Chaque devis est établi sur mesure.',
     features: [
       { title: 'Logistique complète', desc: 'Organisation du transport par route, mer ou air selon la destination et vos besoins.' },
-      { title: 'Accompagnement douanier', desc: 'Accompagnement dans les démarches douanières. Certaines formalités (visa, certificat de résidence) restent à votre charge.' },
+      { title: 'Accompagnement douanier', desc: 'Accompagnement dans les démarches douanières. Certaines formalités restent à votre charge.' },
       { title: 'Emballage adapté', desc: 'Emballage professionnel renforcé pour les longs trajets et le transport maritime.' },
       { title: 'Devis sur mesure', desc: 'Chaque projet international est unique. Le devis est toujours personnalisé.' },
     ],
     callout: 'Contactez-nous pour un devis sur mesure pour votre déménagement international.',
+    contentBlock1: {
+      title: 'Un emballage renforcé pour les longs trajets',
+      text: 'Les déménagements internationaux exigent une préparation minutieuse. Vos biens sont emballés avec des matériaux renforcés adaptés aux longs trajets — routiers, maritimes ou aériens. Chaque carton est inventorié et chaque meuble protégé individuellement pour garantir son intégrité à destination.',
+      imgAlt: 'Emballage professionnel renforcé pour déménagement international',
+      img: '/img-international-1.png',
+    },
+    contentBlock2: {
+      title: 'De porte à porte, partout dans le monde',
+      text: 'Nous coordonnons l\'ensemble du processus : enlèvement à domicile, formalités de transport, livraison à destination. Notre réseau de partenaires logistiques nous permet d\'intervenir en Europe, en Amérique, en Afrique et en Asie. Vous bénéficiez d\'un interlocuteur unique tout au long du processus.',
+      imgAlt: 'Camion de déménagement pour transport international',
+      img: '/img-international-2.png',
+    },
   },
   'emballage': {
     slug: 'emballage',
@@ -79,6 +119,18 @@ const servicesData: Record<string, ServiceData> = {
       { title: 'Fournitures', desc: 'Cartons et adhésifs livrés à l\'avance selon la formule.' },
     ],
     callout: 'Obtenez un devis gratuit incluant le service d\'emballage.',
+    contentBlock1: {
+      title: 'Des techniques éprouvées pour chaque type d\'objet',
+      text: 'Vaisselle, verrerie, luminaires, tableaux — chaque catégorie d\'objet bénéficie d\'une technique d\'emballage spécifique. Nos équipes utilisent du papier bulle, du papier de soie, des cartons renforcés et des calages sur mesure. L\'objectif : que chaque objet arrive à destination dans l\'état exact de son départ.',
+      imgAlt: 'Déménageur emballant des objets fragiles avec soin',
+      img: '/img-emballage-1.png',
+    },
+    contentBlock2: {
+      title: 'C\'est nous qui fournissons le matériel',
+      text: 'Selon la formule choisie, nous livrons directement chez vous les cartons, le papier d\'emballage et les adhésifs nécessaires. Vous n\'avez rien à acheter. Le jour du déménagement, notre équipe procède à l\'emballage méthodique pièce par pièce, et au déballage à l\'arrivée si votre formule le prévoit.',
+      imgAlt: 'Fournitures d\'emballage professionnelles',
+      img: '/img-emballage-2.png',
+    },
   },
   'monte-meuble': {
     slug: 'monte-meuble',
@@ -95,6 +147,18 @@ const servicesData: Record<string, ServiceData> = {
       { title: 'Ponctuel ou complet', desc: 'Service disponible seul ou intégré dans un déménagement complet.' },
     ],
     callout: 'Contactez-nous pour évaluer votre besoin en monte-meuble.',
+    contentBlock1: {
+      title: 'Quand les escaliers ne suffisent pas',
+      text: 'Canapé d\'angle, armoire, piano — certains meubles ne passent tout simplement pas par la cage d\'escalier ou l\'ascenseur. Le monte-meuble permet une montée ou descente par la façade, de manière sécurisée et sans endommager le mobilier ni l\'immeuble. C\'est souvent la seule solution pour les étages élevés.',
+      imgAlt: 'Monte-meuble sur la façade d\'un immeuble parisien',
+      img: '/img-monte-meuble-1.png',
+    },
+    contentBlock2: {
+      title: 'Un service intégré ou ponctuel',
+      text: 'Vous pouvez faire appel à notre monte-meuble dans le cadre d\'un déménagement complet ou pour une intervention ponctuelle — livraison d\'un meuble neuf, descente d\'un objet encombrant, etc. Nous nous déplaçons pour évaluer la faisabilité et vous proposons un devis adapté.',
+      imgAlt: 'Déménageurs manipulant un meuble volumineux dans un couloir',
+      img: '/img-monte-meuble-2.png',
+    },
   },
   'garde-meuble': {
     slug: 'garde-meuble',
@@ -111,6 +175,18 @@ const servicesData: Record<string, ServiceData> = {
       { title: 'Service combiné', desc: 'Combinez garde-meuble et déménagement pour une solution complète.' },
     ],
     callout: 'Demandez un devis gratuit incluant le garde-meuble.',
+    contentBlock1: {
+      title: 'Un stockage pensé pour vos biens',
+      text: 'Nos espaces de stockage sont adaptés à la conservation de mobilier et d\'effets personnels. Chaque client dispose d\'un espace dédié, accessible sur demande. Les conditions de stockage (température, humidité) sont surveillées pour préserver l\'intégrité de vos biens, quelle que soit la durée.',
+      imgAlt: 'Espace de stockage sécurisé avec portes oranges',
+      img: '/img-garde-meuble-1.png',
+    },
+    contentBlock2: {
+      title: 'On vient chercher, on stocke, on livre',
+      text: 'Pas besoin de vous déplacer. Nous venons chez vous pour enlever les biens à stocker, nous les transportons vers notre espace de stockage et nous les livrons à l\'adresse de votre choix quand vous êtes prêt. C\'est un service de bout en bout, sans contrainte pour vous.',
+      imgAlt: 'Chargement de meubles emballés dans un entrepôt',
+      img: '/img-garde-meuble-2.png',
+    },
   },
 }
 
@@ -155,7 +231,47 @@ export default async function ServicePage(props: PageProps<'/services/[slug]'>) 
       <section className={`section ${styles.intro}`}>
         <div className="container container--narrow">
           <p className={styles.introText}>{data.intro}</p>
-          <hr className="divider divider--center" />
+        </div>
+      </section>
+
+      {/* Content Block 1 — Image LEFT, Text RIGHT */}
+      <section className={styles.contentSection}>
+        <div className={styles.contentInner}>
+          <div className={styles.contentImg}>
+            <Image
+              src={data.contentBlock1.img}
+              alt={data.contentBlock1.imgAlt}
+              width={560}
+              height={400}
+              className={styles.contentImage}
+            />
+          </div>
+          <div className={styles.contentText}>
+            <h2>{data.contentBlock1.title}<span className={styles.dot}>.</span></h2>
+            <p>{data.contentBlock1.text}</p>
+            <Link href="/devis" className={styles.contentCta}>
+              Demander un devis gratuit →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Block 2 — Text LEFT, Image RIGHT */}
+      <section className={`${styles.contentSection} ${styles.contentSectionAlt}`}>
+        <div className={`${styles.contentInner} ${styles.contentInnerReversed}`}>
+          <div className={styles.contentImg}>
+            <Image
+              src={data.contentBlock2.img}
+              alt={data.contentBlock2.imgAlt}
+              width={560}
+              height={400}
+              className={styles.contentImage}
+            />
+          </div>
+          <div className={styles.contentText}>
+            <h2>{data.contentBlock2.title}<span className={styles.dot}>.</span></h2>
+            <p>{data.contentBlock2.text}</p>
+          </div>
         </div>
       </section>
 
@@ -175,13 +291,18 @@ export default async function ServicePage(props: PageProps<'/services/[slug]'>) 
       </section>
 
       {/* CTA */}
-      <section className={`section section--dark ${styles.cta}`}>
+      <section className={styles.ctaSection}>
         <div className="container container--narrow text-center">
           <h2>Prêt à <em>commencer</em> ?</h2>
           <p style={{ margin: '1rem auto 2rem', maxWidth: '480px' }}>{data.callout}</p>
-          <Link href="/devis" className="btn btn--primary btn--large" id={`service-${slug}-cta`}>
-            Demander un devis gratuit
-          </Link>
+          <div className={styles.ctaBtns}>
+            <Link href="/devis" className={styles.ctaPrimary} id={`service-${slug}-cta`}>
+              Demander un devis gratuit →
+            </Link>
+            <a href="tel:+33100000000" className={styles.ctaGhost}>
+              Nous appeler
+            </a>
+          </div>
         </div>
       </section>
     </>

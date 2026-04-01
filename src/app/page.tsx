@@ -1,5 +1,14 @@
 import type { Metadata } from 'next'
-import { Hero, Statement, Services, Trust, Process, Zones, FAQ, CtaFinal } from '@/components/HomeSections'
+import {
+  Hero,
+  Services,
+  HowItWorks,
+  Formulas,
+  TrustBand,
+  FAQ,
+  OurStory,
+  FinalCta,
+} from '@/components/HomeSections'
 
 export const metadata: Metadata = {
   title: 'Breteuil Déménagement | Déménageur professionnel en France',
@@ -12,13 +21,13 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Statement />
+      <TrustBand />
       <Services />
-      <Trust />
-      <Process />
-      <Zones />
+      <HowItWorks />
+      <Formulas />
+      <OurStory />
       <FAQ />
-      <CtaFinal />
+      <FinalCta />
     </>
   )
 }

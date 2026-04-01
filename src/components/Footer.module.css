@@ -1,75 +1,43 @@
+/* ═══ FOOTER — Clean dark, no beige ═══ */
 .footer {
-  background: var(--color-charcoal);
-  color: var(--color-text-inverse);
-  padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+  background: var(--gray-900);
+  color: var(--gray-400);
+  padding: 4rem 0 2rem;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
-  padding: 0 clamp(1.25rem, 3vw, 2rem);
+  padding: 0 clamp(1.25rem, 4vw, 2rem);
 }
 
 .top {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1.2fr 2fr;
   gap: 4rem;
   padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(250, 248, 245, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Brand */
-.brand {
-  max-width: 300px;
-}
+.brand { max-width: 280px; }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
-  margin-bottom: 1.25rem;
+  display: inline-block;
+  margin-bottom: 1rem;
 }
-
-.logoMark {
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 4px;
-  background: var(--color-primary);
-  color: var(--color-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-.logoName {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--color-cream);
-  display: block;
-  line-height: 1.15;
-}
-
-.logoSub {
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  font-weight: 500;
-  color: rgba(250, 248, 245, 0.45);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+.logoImg {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
 }
 
 .brandDesc {
-  font-size: 0.875rem;
-  line-height: 1.7;
-  color: rgba(250, 248, 245, 0.5);
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: var(--gray-500);
 }
 
-/* Links */
 .linksGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -77,52 +45,39 @@
 }
 
 .colTitle {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  color: var(--white);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(250, 248, 245, 0.35);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .link {
   display: block;
-  font-size: 0.875rem;
-  color: rgba(250, 248, 245, 0.6);
-  text-decoration: none;
+  font-size: 0.84rem;
+  color: var(--gray-500);
   padding: 0.3rem 0;
-  transition: color 0.2s ease;
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
+.link:hover { color: var(--white); }
 
-.link:hover {
-  color: var(--color-cream);
-}
-
-/* Bottom */
 .bottom {
   padding-top: 2rem;
   text-align: center;
 }
 
 .copy {
-  font-size: 0.8rem;
-  color: rgba(250, 248, 245, 0.3);
+  font-size: 0.75rem;
+  color: var(--gray-600);
 }
 
 @media (max-width: 768px) {
-  .top {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  .linksGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
+  .top { grid-template-columns: 1fr; gap: 2.5rem; }
+  .linksGrid { grid-template-columns: repeat(2, 1fr); }
 }
-
-@media (max-width: 480px) {
-  .linksGrid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 500px) {
+  .linksGrid { grid-template-columns: 1fr; }
 }

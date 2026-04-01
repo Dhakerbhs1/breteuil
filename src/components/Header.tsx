@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './Header.module.css'
 
 const navLinks = [
-  { label: 'Nos services', href: '/#services' },
   { label: 'Formules', href: '/formules' },
   { label: 'À propos', href: '/a-propos' },
   { label: 'Contact', href: '/contact' },
@@ -45,11 +45,14 @@ export default function Header() {
       <div className={styles.inner}>
         {/* Logo */}
         <Link href="/" className={styles.logo} onClick={() => setMobileOpen(false)}>
-          <span className={styles.logoMark}>B</span>
-          <div className={styles.logoText}>
-            <span className={styles.logoName}>Breteuil</span>
-            <span className={styles.logoSub}>Déménagement</span>
-          </div>
+          <Image
+            src="/logo.png"
+            alt="Breteuil Déménagement"
+            width={160}
+            height={42}
+            className={styles.logoImg}
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -75,7 +78,7 @@ export default function Header() {
               </div>
             )}
           </div>
-          {navLinks.filter(l => l.label !== 'Nos services').map((link) => (
+          {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className={styles.navLink}>
               {link.label}
             </Link>
@@ -83,7 +86,7 @@ export default function Header() {
         </nav>
 
         {/* CTA */}
-        <Link href="/devis" className={`btn btn--primary ${styles.ctaBtn}`}>
+        <Link href="/devis" className={`btn btn--accent ${styles.ctaBtn}`}>
           Devis gratuit
         </Link>
 
@@ -111,12 +114,12 @@ export default function Header() {
               </Link>
             ))}
             <div className={styles.mobileDivider} />
-            {navLinks.filter(l => l.label !== 'Nos services').map((link) => (
+            {navLinks.map((link) => (
               <Link key={link.href} href={link.href} className={styles.mobileLink} onClick={() => setMobileOpen(false)}>
                 {link.label}
               </Link>
             ))}
-            <Link href="/devis" className="btn btn--primary btn--large" onClick={() => setMobileOpen(false)} style={{ marginTop: '1.5rem', width: '100%' }}>
+            <Link href="/devis" className="btn btn--accent btn--large" onClick={() => setMobileOpen(false)} style={{ marginTop: '1.5rem', width: '100%' }}>
               Demander un devis gratuit
             </Link>
           </nav>
