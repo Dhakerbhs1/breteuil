@@ -1,0 +1,42 @@
+.topbar {
+  background: var(--orange);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.45rem 0;
+  position: relative;
+  z-index: 1001;
+}
+
+.inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 3vw, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: opacity 0.15s ease;
+}
+.cta:hover { opacity: 0.85; }
+.cta strong { font-weight: 700; }
+
+.info {
+  font-size: 0.72rem;
+  opacity: 0.85;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+  .info { display: none; }
+  .inner { justify-content: center; }
+}

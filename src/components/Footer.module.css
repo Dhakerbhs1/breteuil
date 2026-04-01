@@ -1,0 +1,128 @@
+.footer {
+  background: var(--color-charcoal);
+  color: var(--color-text-inverse);
+  padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 3vw, 2rem);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(250, 248, 245, 0.08);
+}
+
+/* Brand */
+.brand {
+  max-width: 300px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  margin-bottom: 1.25rem;
+}
+
+.logoMark {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 4px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.logoName {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-cream);
+  display: block;
+  line-height: 1.15;
+}
+
+.logoSub {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: rgba(250, 248, 245, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.brandDesc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgba(250, 248, 245, 0.5);
+}
+
+/* Links */
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.colTitle {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 245, 0.35);
+  margin-bottom: 1.25rem;
+}
+
+.link {
+  display: block;
+  font-size: 0.875rem;
+  color: rgba(250, 248, 245, 0.6);
+  text-decoration: none;
+  padding: 0.3rem 0;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--color-cream);
+}
+
+/* Bottom */
+.bottom {
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.copy {
+  font-size: 0.8rem;
+  color: rgba(250, 248, 245, 0.3);
+}
+
+@media (max-width: 768px) {
+  .top {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .linksGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .linksGrid {
+    grid-template-columns: 1fr;
+  }
+}
