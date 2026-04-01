@@ -59,7 +59,7 @@ const servicesData: Record<string, ServiceData> = {
     features: [
       { title: 'Intervention adaptée', desc: 'Planning organisé pour minimiser l\'impact sur votre activité professionnelle.' },
       { title: 'Protection du matériel', desc: 'Emballage professionnel adapté pour le matériel informatique et le mobilier de bureau.' },
-      { title: 'Équipe formée', desc: 'Déménageurs expérimentés dans la manipulation de mobilier et matériel professionnel.' },
+      { title: 'Équipe formée', desc: 'Professionnels qualifiés dans la manipulation de mobilier et matériel professionnel.' },
       { title: 'Devis clair', desc: 'Proposition détaillée et adaptée à la taille de votre entreprise.' },
     ],
     callout: 'Obtenez un devis gratuit pour le déménagement de votre entreprise.',
@@ -121,7 +121,7 @@ const servicesData: Record<string, ServiceData> = {
     callout: 'Obtenez un devis gratuit incluant le service d\'emballage.',
     contentBlock1: {
       title: 'Des techniques éprouvées pour chaque type d\'objet',
-      text: 'Vaisselle, verrerie, luminaires, tableaux — chaque catégorie d\'objet bénéficie d\'une technique d\'emballage spécifique. Nos équipes utilisent du papier bulle, du papier de soie, des cartons renforcés et des calages sur mesure. L\'objectif : que chaque objet arrive à destination dans l\'état exact de son départ.',
+      text: 'Vaisselle, verrerie, luminaires, tableaux — chaque catégorie d\'objet bénéficie d\'une technique d\'emballage spécifique. Nos équipes utilisent du papier bulle, du papier de soie, des cartons renforcés et des calages sur mesure pour garantir les meilleures conditions de transport.',
       imgAlt: 'Déménageur emballant des objets fragiles avec soin',
       img: '/img-emballage-1.png',
     },
@@ -177,7 +177,7 @@ const servicesData: Record<string, ServiceData> = {
     callout: 'Demandez un devis gratuit incluant le garde-meuble.',
     contentBlock1: {
       title: 'Un stockage pensé pour vos biens',
-      text: 'Nos espaces de stockage sont adaptés à la conservation de mobilier et d\'effets personnels. Chaque client dispose d\'un espace dédié, accessible sur demande. Les conditions de stockage (température, humidité) sont surveillées pour préserver l\'intégrité de vos biens, quelle que soit la durée.',
+      text: 'Nos espaces de stockage sont adaptés à la conservation de mobilier et d\'effets personnels. Chaque client dispose d\'un espace dédié, accessible sur demande. Les conditions de stockage sont adaptées pour préserver vos biens, quelle que soit la durée.',
       imgAlt: 'Espace de stockage sécurisé avec portes oranges',
       img: '/img-garde-meuble-1.png',
     },

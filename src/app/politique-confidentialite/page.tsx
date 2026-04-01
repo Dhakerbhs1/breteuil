@@ -76,10 +76,7 @@ export default function PolitiqueConfidentialitePage() {
           <li>Par email : contact@breteuil-demenagement.fr</li>
           <li>Par courrier : DIDAY SAS – 20 Quai Duguay Trouin 35000 Rennes, France</li>
         </ul>
-        <p>
-          En cas de réclamation, vous pouvez également contacter la CNIL :{' '}
-          <a href="https://www.cnil.fr" style={{ color: 'var(--color-primary)', textDecoration: 'underline' }}>www.cnil.fr</a>
-        </p>
+
 
         <h2 style={{ fontSize: '1.25rem', marginTop: '2rem', marginBottom: '0.75rem' }}>8. Cookies</h2>
         <p>

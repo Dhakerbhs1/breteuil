@@ -49,7 +49,7 @@ export default function AProposPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
             {[
               { title: 'Interlocuteur unique', desc: 'Un seul contact vous accompagne de la demande de devis jusqu\'à la fin de votre déménagement.', icon: '◎' },
-              { title: 'Équipe professionnelle', desc: 'Déménageurs déclarés et formés, véhicules adaptés, matériel professionnel.', icon: '◉' },
+              { title: 'Équipe professionnelle', desc: 'Professionnels qualifiés et formés, véhicules adaptés, matériel professionnel.', icon: '◉' },
               { title: 'Partout en France', desc: 'Interventions locales, nationales et internationales selon vos besoins.', icon: '◇' },
               { title: 'Devis clair', desc: 'Proposition détaillée et sans engagement, adaptée à votre situation.', icon: '◈' },
             ].map((v, i) => (

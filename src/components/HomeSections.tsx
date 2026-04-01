@@ -4,17 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import styles from './Home.module.css'
 
-/* ═══════════════════════════════════════════════════════
-   DESIGN PHILOSOPHY — BOLD GEOMETRIC
-   
-   vs Briand (editorial serif splitscreen):
-   - NO splitscreen hero → full-width centered gradient hero
-   - NO serif fonts → geometric sans-serif (Space Grotesk)
-   - NO timeline layout → icon grid cards
-   - NO tab formulas → horizontal scroll 3 cards
-   - NO editorial badges → pill tags
-   - NO cream/beige backgrounds → clean white/gray
-   ═══════════════════════════════════════════════════════ */
+
 
 /* ── Arrow icon ── */
 const Arrow = () => (
@@ -225,7 +215,7 @@ export function TrustBand() {
       <div className={styles.trustInner}>
         {[
           { icon: '📋', label: 'Devis détaillé', sub: 'Gratuit et sans engagement' },
-          { icon: '👷', label: 'Équipe formée', sub: 'Déménageurs déclarés' },
+          { icon: '👷', label: 'Équipe formée', sub: 'Professionnels qualifiés' },
           { icon: '🛡️', label: 'Biens protégés', sub: 'Emballage professionnel' },
           { icon: '🇫🇷', label: 'Toute la France', sub: 'Et à l\'international' },
         ].map((item, i) => (
