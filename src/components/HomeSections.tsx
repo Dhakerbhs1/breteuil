@@ -28,8 +28,8 @@ export function Hero() {
           Devis gratuit · Réponse rapide
         </div>
         <h1 className={styles.heroTitle}>
-          Déménagez<br />
-          en toute simplicité<span className={styles.heroDot}>.</span>
+          Un déménagement<br />
+          bien orchestré<span className={styles.heroDot}>.</span>
         </h1>
         <p className={styles.heroSub}>
           Breteuil Déménagement prend en charge votre projet de A&nbsp;à&nbsp;Z.

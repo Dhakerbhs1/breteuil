@@ -5,7 +5,6 @@ import {
   HowItWorks,
   Formulas,
   TrustBand,
-  FAQ,
   OurStory,
   FinalCta,
 } from '@/components/HomeSections'
@@ -26,7 +25,6 @@ export default function HomePage() {
       <HowItWorks />
       <Formulas />
       <OurStory />
-      <FAQ />
       <FinalCta />
     </>
   )
