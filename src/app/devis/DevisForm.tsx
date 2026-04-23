@@ -1,13 +1,30 @@
 'use client'
 
 import { useState } from 'react'
+import AddressAutocomplete from '@/components/AddressAutocomplete'
 import styles from './DevisPage.module.css'
 
-export default function DevisPage() {
+const SERVICE_OPTIONS = [
+  { value: 'demenagement-residentiel', label: 'Déménagement résidentiel' },
+  { value: 'demenagement-professionnel', label: 'Déménagement professionnel' },
+  { value: 'demenagement-international', label: 'Déménagement international' },
+  { value: 'emballage', label: 'Emballage' },
+  { value: 'monte-meuble', label: 'Monte-meuble' },
+  { value: 'garde-meuble', label: 'Garde-meuble' },
+]
+
+export default function DevisForm() {
   const [form, setForm] = useState({
-    nom: '', telephone: '', email: '',
-    depart: '', arrivee: '', service: 'demenagement-residentiel',
-    date: '', message: '',
+    nom: '',
+    telephone: '',
+    email: '',
+    ville_depart: '',
+    cp_depart: '',
+    ville_arrivee: '',
+    cp_arrivee: '',
+    service: 'demenagement-residentiel',
+    date: '',
+    message: '',
   })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
@@ -55,12 +72,31 @@ export default function DevisPage() {
           </p>
           <ul className={styles.infoList}>
             <li>Devis gratuit et sans engagement</li>
-            <li>Réponse rapide</li>
+            <li>Réponse dans les meilleurs délais</li>
             <li>Accompagnement de A à Z</li>
           </ul>
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit} id="devis-form">
+          {/* Ligne 1 — Villes avec autocomplétion */}
+          <div className={styles.row}>
+            <AddressAutocomplete
+              label="Ville de départ *"
+              placeholder="Tapez une ville..."
+              required
+              id="ville_depart"
+              onSelect={(city, postcode) => setForm(f => ({ ...f, ville_depart: city, cp_depart: postcode }))}
+            />
+            <AddressAutocomplete
+              label="Ville d'arrivée *"
+              placeholder="Tapez une ville..."
+              required
+              id="ville_arrivee"
+              onSelect={(city, postcode) => setForm(f => ({ ...f, ville_arrivee: city, cp_arrivee: postcode }))}
+            />
+          </div>
+
+          {/* Ligne 2 — Nom + Téléphone */}
           <div className={styles.row}>
             <div className="form-group">
               <label className="form-label" htmlFor="nom">Nom complet *</label>
@@ -71,41 +107,35 @@ export default function DevisPage() {
               <input className="form-input" type="tel" name="telephone" id="telephone" required value={form.telephone} onChange={handleChange} placeholder="06 12 34 56 78" />
             </div>
           </div>
+
+          {/* Ligne 3 — Email + Date */}
+          <div className={styles.row}>
+            <div className="form-group">
+              <label className="form-label" htmlFor="email">Email *</label>
+              <input className="form-input" type="email" name="email" id="email" required value={form.email} onChange={handleChange} placeholder="jean@email.com" />
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="date">Date souhaitée *</label>
+              <input className="form-input" type="date" name="date" id="date" required value={form.date} onChange={handleChange} />
+            </div>
+          </div>
+
+          {/* Ligne 4 — Service */}
           <div className="form-group">
-            <label className="form-label" htmlFor="email">Email</label>
-            <input className="form-input" type="email" name="email" id="email" value={form.email} onChange={handleChange} placeholder="jean@email.com" />
+            <label className="form-label" htmlFor="service">Type de service</label>
+            <select className="form-input" name="service" id="service" value={form.service} onChange={handleChange}>
+              {SERVICE_OPTIONS.map(o => (
+                <option key={o.value} value={o.value}>{o.label}</option>
+              ))}
+            </select>
           </div>
-          <div className={styles.row}>
-            <div className="form-group">
-              <label className="form-label" htmlFor="depart">Ville de départ *</label>
-              <input className="form-input" type="text" name="depart" id="depart" required value={form.depart} onChange={handleChange} placeholder="Paris" />
-            </div>
-            <div className="form-group">
-              <label className="form-label" htmlFor="arrivee">Ville d&apos;arrivée *</label>
-              <input className="form-input" type="text" name="arrivee" id="arrivee" required value={form.arrivee} onChange={handleChange} placeholder="Lyon" />
-            </div>
-          </div>
-          <div className={styles.row}>
-            <div className="form-group">
-              <label className="form-label" htmlFor="service">Type de service</label>
-              <select className="form-input" name="service" id="service" value={form.service} onChange={handleChange}>
-                <option value="demenagement-residentiel">Déménagement résidentiel</option>
-                <option value="demenagement-professionnel">Déménagement professionnel</option>
-                <option value="demenagement-international">Déménagement international</option>
-                <option value="emballage">Emballage</option>
-                <option value="monte-meuble">Monte-meuble</option>
-                <option value="garde-meuble">Garde-meuble</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label className="form-label" htmlFor="date">Date souhaitée</label>
-              <input className="form-input" type="date" name="date" id="date" value={form.date} onChange={handleChange} />
-            </div>
-          </div>
+
+          {/* Ligne 5 — Message */}
           <div className="form-group">
             <label className="form-label" htmlFor="message">Message (optionnel)</label>
             <textarea className="form-textarea" name="message" id="message" value={form.message} onChange={handleChange} placeholder="Décrivez votre projet..." />
           </div>
+
           <button type="submit" className="btn btn--primary btn--large" style={{ width: '100%' }} disabled={status === 'loading'} id="devis-submit">
             {status === 'loading' ? 'Envoi en cours...' : 'Envoyer ma demande'}
           </button>

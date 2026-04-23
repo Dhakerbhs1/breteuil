@@ -1,48 +1,77 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server";
+import { sendLeadToCRM, formatPhone, formatDateInput } from "@/lib/crm";
+import { sendLeadNotification } from "@/lib/email";
 
 const SERVICE_LABELS: Record<string, string> = {
-  'demenagement-residentiel': 'Déménagement résidentiel',
-  'demenagement-professionnel': 'Déménagement professionnel',
-  'demenagement-international': 'Déménagement international',
-  'emballage': 'Emballage professionnel',
-  'monte-meuble': 'Monte-meuble',
-  'garde-meuble': 'Garde-meuble',
-}
+  "demenagement-residentiel": "Déménagement résidentiel",
+  "demenagement-professionnel": "Déménagement professionnel",
+  "demenagement-international": "Déménagement international",
+  "emballage": "Emballage professionnel",
+  "monte-meuble": "Monte-meuble",
+  "garde-meuble": "Garde-meuble",
+};
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json()
-    const { nom, telephone, email, depart, arrivee, service, date, message } = body
+    const data = await request.json();
+    const serviceLabel = SERVICE_LABELS[data.service] || data.service || "Devis";
 
-    if (!nom || !telephone || !depart || !arrivee) {
+    // Vérification des champs obligatoires
+    if (!data.nom || !data.telephone) {
       return NextResponse.json(
-        { error: 'Champs obligatoires manquants' },
+        { error: "Champs obligatoires manquants" },
         { status: 400 }
-      )
+      );
     }
 
-    const serviceLabel = SERVICE_LABELS[service] || service
+    // CRM possible si on a villes + date
+    const canCRM = !!(data.ville_depart && data.ville_arrivee && data.date);
 
-    // TODO: integrate with actual email service (Resend) and CRM (Bigin)
-    // For now, log the submission
-    console.log('📬 Nouvelle demande de devis:', {
-      nom,
-      telephone,
-      email,
-      depart,
-      arrivee,
+    // Email — toujours envoyé
+    const emailPromise = sendLeadNotification({
+      source: "Devis",
+      nom: data.nom || "",
+      telephone: data.telephone || "",
+      email: data.email || "",
       service: serviceLabel,
-      date,
-      message,
-      timestamp: new Date().toISOString(),
-    })
+      ville_depart: data.ville_depart || "",
+      cp_depart: data.cp_depart || "",
+      ville_arrivee: data.ville_arrivee || "",
+      cp_arrivee: data.cp_arrivee || "",
+      date: data.date || "",
+      message: data.message || "",
+    });
 
-    return NextResponse.json({ success: true })
-  } catch (error) {
-    console.error('Erreur API devis:', error)
+    if (canCRM) {
+      // CRM + Email en parallèle
+      const crmPromise = sendLeadToCRM({
+        nom_cli: data.nom || "",
+        tel_cli: formatPhone(data.telephone || ""),
+        email_cli: data.email || "",
+        date_depart: formatDateInput(data.date || ""),
+        cp_depart: data.cp_depart || "",
+        ville_depart: data.ville_depart || "",
+        cp_arrivee: data.cp_arrivee || "",
+        ville_arrivee: data.ville_arrivee || "",
+        reference: Math.floor(Date.now() / 1000),
+        source: "breteuil",
+        commentaire_depart: data.message || undefined,
+      });
+
+      const results = await Promise.allSettled([emailPromise, crmPromise]);
+      console.log("[DEVIS] Résultats:", results.map((r) => r.status));
+    } else {
+      // Email seul (pas assez de données pour le CRM)
+      await emailPromise;
+      console.log("[DEVIS] Email seul envoyé (pas de CRM — champs manquants)");
+    }
+
+    return NextResponse.json({ success: true });
+  } catch (err) {
+    console.error("[DEVIS] Erreur:", err);
     return NextResponse.json(
-      { error: 'Erreur serveur' },
+      { error: "Erreur lors du traitement" },
       { status: 500 }
-    )
+    );
   }
 }
