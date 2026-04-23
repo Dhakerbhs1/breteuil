@@ -87,7 +87,7 @@ export default function PolitiqueConfidentialitePage() {
 
         <h2 style={{ fontSize: '1.25rem', marginTop: '2rem', marginBottom: '0.75rem' }}>9. Hébergeur</h2>
         <p>
-          Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.
+          OVHcloud, 2 rue Kellermann, 59100 Roubaix, France.
         </p>
 
         <h2 style={{ fontSize: '1.25rem', marginTop: '2rem', marginBottom: '0.75rem' }}>10. Modifications</h2>
