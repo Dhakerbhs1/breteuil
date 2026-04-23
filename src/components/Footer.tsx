@@ -16,6 +16,7 @@ const company = [
   { label: 'À propos', href: '/a-propos' },
   { label: 'Contact', href: '/contact' },
   { label: 'Devis gratuit', href: '/devis' },
+  { label: 'Payer mon déménagement', href: '/payer' },
 ]
 
 const legal = [
@@ -44,6 +45,9 @@ export default function Footer() {
             <p className={styles.brandDesc}>
               Déménageur professionnel intervenant partout en France.
               Particuliers et entreprises.
+            </p>
+            <p className={styles.brandDesc} style={{ marginTop: '0.5rem', fontSize: '0.8rem' }}>
+              📍 Immeuble Atria, 8 Esplanade Compans Caffarelli, 31000 Toulouse
             </p>
           </div>
 

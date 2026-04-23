@@ -45,8 +45,8 @@ export default function ContactPage() {
             </div>
             <div style={{ textAlign: 'center', padding: '2rem', background: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)' }}>
               <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>📍</span>
-              <h3 style={{ fontSize: '1rem', marginBottom: '0.25rem' }}>Zone</h3>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>Toute la France</p>
+              <h3 style={{ fontSize: '1rem', marginBottom: '0.25rem' }}>Adresse</h3>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>Immeuble Atria, 8 Esplanade Compans Caffarelli, 31000 Toulouse</p>
             </div>
           </div>
 
