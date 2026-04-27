@@ -10,9 +10,9 @@ import {
 } from '@/components/HomeSections'
 
 export const metadata: Metadata = {
-  title: 'Breteuil Déménagement | Déménageur professionnel en France',
+  title: 'Breteuil Déménagement | Déménageur Toulouse & France entière',
   description:
-    'Breteuil Déménagement, votre déménageur professionnel. Résidentiel, entreprise, international. Devis gratuit et personnalisé. Intervention partout en France.',
+    'Breteuil Déménagement, déménageur professionnel à Toulouse. Déménagement résidentiel, professionnel, international. Monte-meuble, garde-meuble, emballage. Devis gratuit et sans engagement.',
   alternates: { canonical: 'https://breteuil-demenagement.fr' },
 }
 

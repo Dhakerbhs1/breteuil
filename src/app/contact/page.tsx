@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Contactez Breteuil Déménagement pour toute question ou demande de devis. Réponse rapide.',
+  description: 'Contactez Breteuil Déménagement à Toulouse. Demande de devis, informations sur nos services de déménagement. Réponse dans les meilleurs délais.',
   alternates: { canonical: 'https://breteuil-demenagement.fr/contact' },
 }
 
@@ -36,7 +36,7 @@ export default function ContactPage() {
             <div style={{ textAlign: 'center', padding: '2rem', background: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)' }}>
               <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>📞</span>
               <h3 style={{ fontSize: '1rem', marginBottom: '0.25rem' }}>Téléphone</h3>
-              <a href="tel:+33100000000" style={{ color: 'var(--color-primary)', fontWeight: 500, fontSize: '0.9rem' }}>01 XX XX XX XX</a>
+              <a href="#" style={{ color: 'var(--color-primary)', fontWeight: 500, fontSize: '0.9rem' }}>-</a>
             </div>
             <div style={{ textAlign: 'center', padding: '2rem', background: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)' }}>
               <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>✉️</span>

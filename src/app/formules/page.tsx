@@ -3,8 +3,8 @@ import Link from 'next/link'
 import styles from './Formules.module.css'
 
 export const metadata: Metadata = {
-  title: 'Nos Formules',
-  description: 'Découvrez nos 3 formules de déménagement : Économique, Confort et Luxe. Devis gratuit et sans engagement. Breteuil Déménagement.',
+  title: 'Formules Déménagement Économique, Confort, Luxe',
+  description: '3 formules de déménagement adaptées à vos besoins : Économique, Confort et Luxe. Devis gratuit et sans engagement. Breteuil Déménagement Toulouse.',
   alternates: { canonical: 'https://breteuil-demenagement.fr/formules' },
 }
 

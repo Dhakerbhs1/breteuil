@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import DevisForm from './DevisForm'
 
 export const metadata: Metadata = {
-  title: 'Devis Gratuit',
-  description: 'Demandez un devis gratuit et sans engagement pour votre déménagement. Réponse rapide. Breteuil Déménagement.',
+  title: 'Devis Déménagement Gratuit',
+  description: 'Demandez votre devis déménagement gratuit et sans engagement. Déménagement résidentiel, professionnel, international. Breteuil Déménagement Toulouse.',
   alternates: { canonical: 'https://breteuil-demenagement.fr/devis' },
 }
 

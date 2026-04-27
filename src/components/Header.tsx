@@ -48,7 +48,7 @@ export default function Header() {
         <Link href="/" className={styles.logo} onClick={() => setMobileOpen(false)}>
           <Image
             src="/logo.png"
-            alt="Breteuil Déménagement"
+            alt="Breteuil Déménagement - Déménageur professionnel Toulouse"
             width={160}
             height={42}
             className={styles.logoImg}

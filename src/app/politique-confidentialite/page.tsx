@@ -19,7 +19,7 @@ export default function PolitiqueConfidentialitePage() {
           Siège social : 20 Quai Duguay Trouin 35000 Rennes, France<br />
           SIRET : 851 885 178 00067<br />
           Email : contact@breteuil-demenagement.fr<br />
-          Téléphone : 01 XX XX XX XX
+          Téléphone : -
         </p>
 
         <h2 style={{ fontSize: '1.25rem', marginTop: '2rem', marginBottom: '0.75rem' }}>2. Données collectées</h2>

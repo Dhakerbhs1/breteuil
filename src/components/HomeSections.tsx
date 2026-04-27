@@ -40,7 +40,7 @@ export function Hero() {
             Obtenir mon devis gratuit
             <Arrow />
           </Link>
-          <a href="tel:+33100000000" className={styles.heroCtaSecondary}>
+          <a href="#" className={styles.heroCtaSecondary}>
             Nous appeler
           </a>
         </div>
@@ -347,7 +347,7 @@ export function FinalCta() {
             Demander un devis gratuit
             <Arrow />
           </Link>
-          <a href="tel:+33100000000" className={styles.finalCtaGhost}>
+          <a href="#" className={styles.finalCtaGhost}>
             Nous appeler
           </a>
         </div>

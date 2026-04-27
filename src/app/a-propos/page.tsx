@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'À Propos',
-  description: 'Découvrez Breteuil Déménagement, votre déménageur professionnel. Équipe expérimentée, interlocuteur dédié, intervention partout en France.',
+  title: 'À Propos de Breteuil Déménagement',
+  description: 'Découvrez Breteuil Déménagement, société de déménagement professionnelle à Toulouse. Équipe qualifiée, interlocuteur dédié, intervention partout en France et à l\u2019international.',
   alternates: { canonical: 'https://breteuil-demenagement.fr/a-propos' },
 }
 

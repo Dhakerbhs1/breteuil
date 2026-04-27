@@ -36,7 +36,7 @@ export default function Footer() {
             <Link href="/" className={styles.logo}>
               <Image
                 src="/logo.png"
-                alt="Breteuil Déménagement"
+                alt="Breteuil Déménagement - Déménageur Toulouse France"
                 width={160}
                 height={45}
                 className={styles.logoImg}

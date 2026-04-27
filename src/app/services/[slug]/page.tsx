@@ -38,13 +38,13 @@ const servicesData: Record<string, ServiceData> = {
     contentBlock1: {
       title: 'Une protection adaptée à chaque objet',
       text: 'Chaque meuble, chaque carton bénéficie d\'une attention particulière. Nos équipes utilisent des housses, couvertures matelassées et calages adaptés pour garantir la sécurité de vos biens pendant le transport. Les objets fragiles sont emballés individuellement selon des techniques professionnelles éprouvées.',
-      imgAlt: 'Déménageurs protégeant du mobilier avec des couvertures professionnelles',
+      imgAlt: 'Protection mobilier déménagement résidentiel Breteuil Déménagement',
       img: '/img-residentiel-1.png',
     },
     contentBlock2: {
       title: 'Un transport organisé et ponctuel',
       text: 'Notre parc de véhicules est dimensionné pour s\'adapter à chaque volume. Du studio au pavillon, le camion est sélectionné selon votre inventaire pour optimiser le chargement et réduire les trajets. Le jour J, notre équipe arrive à l\'heure convenue et prend en charge l\'intégralité du processus.',
-      imgAlt: 'Camion de déménagement devant un immeuble parisien',
+      imgAlt: 'Camion déménagement résidentiel Breteuil Déménagement France',
       img: '/img-residentiel-2.png',
     },
   },
@@ -66,13 +66,13 @@ const servicesData: Record<string, ServiceData> = {
     contentBlock1: {
       title: 'Limiter l\'impact sur votre activité',
       text: 'Un déménagement professionnel réussi, c\'est un déménagement qui ne perturbe pas votre production. Nous travaillons en amont avec vos équipes pour établir un planning précis, identifier les contraintes horaires et organiser le transfert par étapes si nécessaire. L\'objectif : une reprise d\'activité dans les meilleurs délais.',
-      imgAlt: 'Déménageurs emballant du matériel de bureau',
+      imgAlt: 'Déménagement professionnel bureau entreprise Breteuil Déménagement',
       img: '/img-professionnel-1.png',
     },
     contentBlock2: {
       title: 'Matériel et mobilier : une prise en charge adaptée',
       text: 'Postes informatiques, archives, mobilier de bureau — chaque élément est manipulé avec le soin adapté. Nos équipes sont formées au démontage et au remontage du mobilier professionnel standard. Le matériel sensible bénéficie d\'un emballage renforcé pour un transport en toute sécurité.',
-      imgAlt: 'Camion de déménagement professionnel en chargement',
+      imgAlt: 'Transport mobilier professionnel camion Breteuil Déménagement',
       img: '/img-professionnel-2.png',
     },
   },
@@ -94,13 +94,13 @@ const servicesData: Record<string, ServiceData> = {
     contentBlock1: {
       title: 'Un emballage renforcé pour les longs trajets',
       text: 'Les déménagements internationaux exigent une préparation minutieuse. Vos biens sont emballés avec des matériaux renforcés adaptés aux longs trajets — routiers, maritimes ou aériens. Chaque carton est inventorié et chaque meuble protégé individuellement pour garantir son intégrité à destination.',
-      imgAlt: 'Emballage professionnel renforcé pour déménagement international',
+      imgAlt: 'Emballage renforcé déménagement international Breteuil Déménagement',
       img: '/img-international-1.png',
     },
     contentBlock2: {
       title: 'De porte à porte, partout dans le monde',
       text: 'Nous coordonnons l\'ensemble du processus : enlèvement à domicile, formalités de transport, livraison à destination. Notre réseau de partenaires logistiques nous permet d\'intervenir en Europe, en Amérique, en Afrique et en Asie. Vous bénéficiez d\'un interlocuteur unique tout au long du processus.',
-      imgAlt: 'Camion de déménagement pour transport international',
+      imgAlt: 'Livraison porte à porte déménagement international Breteuil Déménagement',
       img: '/img-international-2.png',
     },
   },
@@ -122,13 +122,13 @@ const servicesData: Record<string, ServiceData> = {
     contentBlock1: {
       title: 'Des techniques éprouvées pour chaque type d\'objet',
       text: 'Vaisselle, verrerie, luminaires, tableaux — chaque catégorie d\'objet bénéficie d\'une technique d\'emballage spécifique. Nos équipes utilisent du papier bulle, du papier de soie, des cartons renforcés et des calages sur mesure pour garantir les meilleures conditions de transport.',
-      imgAlt: 'Déménageur emballant des objets fragiles avec soin',
+      imgAlt: 'Emballage objets fragiles déménagement Breteuil Déménagement',
       img: '/img-emballage-1.png',
     },
     contentBlock2: {
       title: 'C\'est nous qui fournissons le matériel',
       text: 'Selon la formule choisie, nous livrons directement chez vous les cartons, le papier d\'emballage et les adhésifs nécessaires. Vous n\'avez rien à acheter. Le jour du déménagement, notre équipe procède à l\'emballage méthodique pièce par pièce, et au déballage à l\'arrivée si votre formule le prévoit.',
-      imgAlt: 'Fournitures d\'emballage professionnelles',
+      imgAlt: 'Fournitures emballage cartons déménagement Breteuil Déménagement',
       img: '/img-emballage-2.png',
     },
   },
@@ -150,13 +150,13 @@ const servicesData: Record<string, ServiceData> = {
     contentBlock1: {
       title: 'Quand les escaliers ne suffisent pas',
       text: 'Canapé d\'angle, armoire, piano — certains meubles ne passent tout simplement pas par la cage d\'escalier ou l\'ascenseur. Le monte-meuble permet une montée ou descente par la façade, de manière sécurisée et sans endommager le mobilier ni l\'immeuble. C\'est souvent la seule solution pour les étages élevés.',
-      imgAlt: 'Monte-meuble sur la façade d\'un immeuble parisien',
+      imgAlt: 'Monte-meuble façade immeuble Breteuil Déménagement',
       img: '/img-monte-meuble-1.png',
     },
     contentBlock2: {
       title: 'Un service intégré ou ponctuel',
       text: 'Vous pouvez faire appel à notre monte-meuble dans le cadre d\'un déménagement complet ou pour une intervention ponctuelle — livraison d\'un meuble neuf, descente d\'un objet encombrant, etc. Nous nous déplaçons pour évaluer la faisabilité et vous proposons un devis adapté.',
-      imgAlt: 'Déménageurs manipulant un meuble volumineux dans un couloir',
+      imgAlt: 'Manipulation meuble volumineux monte-meuble Breteuil Déménagement',
       img: '/img-monte-meuble-2.png',
     },
   },
@@ -178,13 +178,13 @@ const servicesData: Record<string, ServiceData> = {
     contentBlock1: {
       title: 'Un stockage pensé pour vos biens',
       text: 'Nos espaces de stockage sont adaptés à la conservation de mobilier et d\'effets personnels. Chaque client dispose d\'un espace dédié, accessible sur demande. Les conditions de stockage sont adaptées pour préserver vos biens, quelle que soit la durée.',
-      imgAlt: 'Espace de stockage sécurisé avec portes oranges',
+      imgAlt: 'Garde-meuble stockage sécurisé Breteuil Déménagement',
       img: '/img-garde-meuble-1.png',
     },
     contentBlock2: {
       title: 'On vient chercher, on stocke, on livre',
       text: 'Pas besoin de vous déplacer. Nous venons chez vous pour enlever les biens à stocker, nous les transportons vers notre espace de stockage et nous les livrons à l\'adresse de votre choix quand vous êtes prêt. C\'est un service de bout en bout, sans contrainte pour vous.',
-      imgAlt: 'Chargement de meubles emballés dans un entrepôt',
+      imgAlt: 'Chargement meubles garde-meuble entrepôt Breteuil Déménagement',
       img: '/img-garde-meuble-2.png',
     },
   },
@@ -213,8 +213,36 @@ export default async function ServicePage(props: PageProps<'/services/[slug]'>) 
     return <div className="container section text-center"><h1>Service non trouvé</h1></div>
   }
 
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: data.title,
+    description: data.metaDescription,
+    url: `https://breteuil-demenagement.fr/services/${slug}`,
+    provider: {
+      '@type': 'MovingCompany',
+      name: 'Breteuil Déménagement',
+      url: 'https://breteuil-demenagement.fr',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Immeuble Atria, 8 Esplanade Compans Caffarelli',
+        addressLocality: 'Toulouse',
+        postalCode: '31000',
+        addressCountry: 'FR',
+      },
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'France',
+    },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroOverlay} />
@@ -299,7 +327,7 @@ export default async function ServicePage(props: PageProps<'/services/[slug]'>) 
             <Link href="/devis" className={styles.ctaPrimary} id={`service-${slug}-cta`}>
               Demander un devis gratuit →
             </Link>
-            <a href="tel:+33100000000" className={styles.ctaGhost}>
+            <a href="#" className={styles.ctaGhost}>
               Nous appeler
             </a>
           </div>

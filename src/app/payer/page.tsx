@@ -207,7 +207,7 @@ function PayerWidget() {
 
                                     <p style={{ textAlign: 'center' as const, color: '#888', fontSize: '0.8rem', marginTop: '0.25rem' }}>
                                         🔒 Paiement 100% sécurisé — Vous n&apos;avez pas de numéro de devis ?{' '}
-                                        <a href="tel:+33100000000" style={{ color: '#db5702', fontWeight: '600' }}>
+                                        <a href="#" style={{ color: '#db5702', fontWeight: '600' }}>
                                             Appelez-nous
                                         </a>
                                     </p>

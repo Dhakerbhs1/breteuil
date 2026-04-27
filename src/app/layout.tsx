@@ -22,16 +22,17 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Breteuil Déménagement | Déménageur professionnel en France',
+    default: 'Breteuil Déménagement | Déménageur professionnel partout en France',
     template: '%s | Breteuil Déménagement',
   },
   description:
-    'Breteuil Déménagement, votre déménageur professionnel. Résidentiel, entreprise, international. Devis gratuit et personnalisé. Intervention partout en France.',
+    'Breteuil Déménagement : déménageur professionnel à Toulouse et partout en France. Déménagement résidentiel, professionnel, international, monte-meuble, garde-meuble. Devis gratuit.',
   metadataBase: new URL('https://breteuil-demenagement.fr'),
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
     siteName: 'Breteuil Déménagement',
+    description: 'Déménageur professionnel à Toulouse. Résidentiel, entreprise, international. Devis gratuit et sans engagement.',
   },
   robots: {
     index: true,
@@ -40,6 +41,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://breteuil-demenagement.fr',
   },
+  keywords: ['déménagement', 'déménageur', 'Toulouse', 'France', 'devis gratuit', 'déménagement professionnel', 'déménagement international', 'monte-meuble', 'garde-meuble', 'emballage', 'Breteuil Déménagement'],
 }
 
 export default function RootLayout({
@@ -52,13 +54,28 @@ export default function RootLayout({
     '@type': 'MovingCompany',
     name: 'Breteuil Déménagement',
     description:
-      'Déménageur professionnel intervenant partout en France. Services résidentiels, professionnels et internationaux.',
+      'Déménageur professionnel à Toulouse intervenant partout en France. Déménagement résidentiel, professionnel, international, monte-meuble, garde-meuble et emballage.',
     url: 'https://breteuil-demenagement.fr',
-    telephone: '+33 1 XX XX XX XX',
-    areaServed: {
-      '@type': 'Country',
-      name: 'France',
+    telephone: '-',
+    image: 'https://breteuil-demenagement.fr/logo.png',
+    logo: 'https://breteuil-demenagement.fr/logo.png',
+    priceRange: 'Sur devis',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Immeuble Atria, 8 Esplanade Compans Caffarelli',
+      addressLocality: 'Toulouse',
+      postalCode: '31000',
+      addressCountry: 'FR',
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 43.6112,
+      longitude: 1.4340,
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'France' },
+      { '@type': 'City', name: 'Toulouse' },
+    ],
     serviceType: [
       'Déménagement résidentiel',
       'Déménagement professionnel',
@@ -67,6 +84,7 @@ export default function RootLayout({
       'Garde-meuble',
       'Emballage professionnel',
     ],
+    sameAs: [],
   }
 
   return (

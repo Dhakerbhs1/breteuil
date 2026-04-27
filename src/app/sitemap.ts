@@ -4,7 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://breteuil-demenagement.fr'
 
   const staticPages = [
-    '', '/formules', '/a-propos', '/contact', '/devis',
+    '', '/formules', '/a-propos', '/contact', '/devis', '/payer',
     '/mentions-legales', '/politique-confidentialite', '/cgv',
   ]
 
