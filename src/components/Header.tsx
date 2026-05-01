@@ -9,7 +9,7 @@ const navLinks = [
   { label: 'Formules', href: '/formules' },
   { label: 'À propos', href: '/a-propos' },
   { label: 'Contact', href: '/contact' },
-  { label: 'Payer', href: '/payer' },
+  { label: 'Régler mon déménagement', href: '/payer' },
 ]
 
 const serviceLinks = [

@@ -37,9 +37,53 @@ function PayerWidget() {
         if (!document.getElementById('diday-pay-css')) {
             document.head.appendChild(link);
         }
+
+        // Injecter les overrides CSS pour le widget
+        const style = document.createElement('style');
+        style.id = 'diday-pay-overrides';
+        style.textContent = `
+            .diday-pay-app .p-5 { padding: 0rem !important; }
+            .diday-pay-app .mt-5, .diday-pay-app .mt-6, .diday-pay-app .mt-8, .diday-pay-app .mt-10,
+            .diday-pay-app .pt-5, .diday-pay-app .pt-6, .diday-pay-app .pt-8, .diday-pay-app .pt-10 {
+                margin-top: 0.5rem !important; padding-top: 0.5rem !important;
+            }
+            .diday-pay-app .flex, .diday-pay-app .flex-row, .diday-pay-app form .flex, .diday-pay-app form > div {
+                flex-direction: column !important; width: 100% !important;
+            }
+            .diday-pay-app .flex > *, .diday-pay-app form .flex > *, .diday-pay-app form input, .diday-pay-app form button {
+                width: 100% !important; max-width: 100% !important;
+            }
+            .diday-pay-app button[type="submit"], .diday-pay-app form button {
+                width: 100% !important; display: block !important;
+            }
+            .diday-pay-app .gap-2, .diday-pay-app .gap-3, .diday-pay-app .gap-4 {
+                gap: 1rem !important;
+            }
+            @media (min-width: 992px) {
+                .diday-pay-app .col-lg-3, .diday-pay-app .col-lg-4, .diday-pay-app .col-lg-6 {
+                    flex: 0 0 100% !important; max-width: 100% !important;
+                }
+            }
+            .diday-pay-app .col-md-3, .diday-pay-app .col-md-4, .diday-pay-app .col-md-6,
+            .diday-pay-app .col-sm-6, .diday-pay-app .col-sm-12 {
+                flex: 0 0 100% !important; max-width: 100% !important;
+            }
+            .diday-pay-app .row {
+                flex-direction: column !important; align-items: center !important;
+            }
+            .diday-pay-app .card, .diday-pay-app .card-body {
+                width: 100% !important; max-width: 100% !important;
+            }
+        `;
+        if (!document.getElementById('diday-pay-overrides')) {
+            document.head.appendChild(style);
+        }
+
         return () => {
             const existing = document.getElementById('diday-pay-css');
             if (existing) document.head.removeChild(existing);
+            const overrides = document.getElementById('diday-pay-overrides');
+            if (overrides) document.head.removeChild(overrides);
         };
     }, []);
 
@@ -77,7 +121,7 @@ function PayerWidget() {
                     <div>
                         <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>💳</div>
                         <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.5rem' }}>
-                            Payer votre Déménagement
+                            Régler mon déménagement
                         </h1>
                         <p style={{ fontSize: '1rem', opacity: 0.85 }}>
                             Accédez à votre espace de paiement sécurisé

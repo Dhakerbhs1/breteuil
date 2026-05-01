@@ -16,7 +16,7 @@ const company = [
   { label: 'À propos', href: '/a-propos' },
   { label: 'Contact', href: '/contact' },
   { label: 'Devis gratuit', href: '/devis' },
-  { label: 'Payer mon déménagement', href: '/payer' },
+  { label: 'Régler mon déménagement', href: '/payer' },
 ]
 
 const legal = [
