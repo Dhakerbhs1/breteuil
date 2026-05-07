@@ -56,7 +56,7 @@ export default function RootLayout({
     description:
       'Déménageur professionnel à Toulouse intervenant partout en France. Déménagement résidentiel, professionnel, international, monte-meuble, garde-meuble et emballage.',
     url: 'https://breteuil-demenagement.fr',
-    telephone: '-',
+    telephone: '+33564310779',
     image: 'https://breteuil-demenagement.fr/logo.png',
     logo: 'https://breteuil-demenagement.fr/logo.png',
     priceRange: 'Sur devis',

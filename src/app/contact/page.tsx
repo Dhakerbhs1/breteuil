@@ -36,7 +36,7 @@ export default function ContactPage() {
             <div style={{ textAlign: 'center', padding: '2rem', background: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)' }}>
               <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>📞</span>
               <h3 style={{ fontSize: '1rem', marginBottom: '0.25rem' }}>Téléphone</h3>
-              <a href="#" style={{ color: 'var(--color-primary)', fontWeight: 500, fontSize: '0.9rem' }}>-</a>
+              <a href="tel:0564310779" style={{ color: 'var(--color-primary)', fontWeight: 500, fontSize: '0.9rem' }}>05 64 31 07 79</a>
             </div>
             <div style={{ textAlign: 'center', padding: '2rem', background: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)' }}>
               <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>✉️</span>

@@ -250,7 +250,7 @@ export default function CGVPage() {
           huissiers de justice Sas Médiation Solution, qui peut être joint :
         </p>
         <ul style={{ paddingLeft: '1.5rem', marginBottom: '1rem' }}>
-          <li>par téléphone : 04 82 53 93 06</li>
+          <li>par téléphone : 05 64 31 07 79</li>
           <li>par voie postale : Sas Médiation Solution, Anne VANZETTO et Candice OLIVIER, 222 chemin de la bergerie, 01800 Saint Jean de Niost.</li>
         </ul>
 

@@ -327,7 +327,7 @@ export default async function ServicePage(props: PageProps<'/services/[slug]'>) 
             <Link href="/devis" className={styles.ctaPrimary} id={`service-${slug}-cta`}>
               Demander un devis gratuit →
             </Link>
-            <a href="#" className={styles.ctaGhost}>
+            <a href="tel:0564310779" className={styles.ctaGhost}>
               Nous appeler
             </a>
           </div>

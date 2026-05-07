@@ -20,7 +20,7 @@ export default function MentionsLegalesPage() {
           SIRET : 851 885 178 00067<br />
           Capital social : 1 752 601,00 €<br />
           Numéro TVA intracommunautaire : FR 38851885178<br />
-          Téléphone : -<br />
+          Téléphone : 05 64 31 07 79<br />
           Email : contact@breteuil-demenagement.fr
         </p>
 
@@ -119,7 +119,7 @@ export default function MentionsLegalesPage() {
           Pour toute question concernant ces mentions légales, vous pouvez nous contacter :<br /><br />
           <strong>Breteuil Déménagement</strong><br />
           20 Quai Duguay Trouin 35000 Rennes, France<br />
-          Tél : -<br />
+          Tél : 05 64 31 07 79<br />
           Email : contact@breteuil-demenagement.fr<br />
           Du lundi au vendredi : 8h - 19h
         </p>
