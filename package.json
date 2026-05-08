@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "rm -rf public/src",
-    "build": "next build",
+    "build": "rm -rf public/src && next build",
     "start": "next start",
     "lint": "eslint"
   },
