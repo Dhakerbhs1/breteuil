@@ -49,6 +49,9 @@ export default function Footer() {
             <p className={styles.brandDesc} style={{ marginTop: '0.5rem', fontSize: '0.8rem' }}>
               📍 Immeuble Atria, 8 Esplanade Compans Caffarelli, 31000 Toulouse
             </p>
+            <p className={styles.brandDesc} style={{ marginTop: '0.4rem', fontSize: '0.8rem' }}>
+              📞 <a href="tel:0564310779" style={{ color: 'inherit', textDecoration: 'none' }}>05 64 31 07 79</a>
+            </p>
           </div>
 
           {/* Links */}
@@ -80,10 +83,12 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
         <div className={styles.bottom}>
           <p className={styles.copy}>
-            © {new Date().getFullYear()} Breteuil Déménagement. Tous droits réservés.
+            © {new Date().getFullYear()} Breteuil Déménagement. Tous droits réservés. Breteuil Déménagement est une marque de DIDAY.
+          </p>
+          <p className={styles.copy} style={{ marginTop: '0.25rem' }}>
+            Société immatriculée au RCS de Rennes — N° SIRET : 851 885 178 00067
           </p>
         </div>
       </div>
