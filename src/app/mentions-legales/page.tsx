@@ -80,7 +80,7 @@ export default function MentionsLegalesPage() {
         <p>Pour exercer vos droits, vous pouvez nous contacter :</p>
         <ul style={{ paddingLeft: '1.5rem', marginBottom: '1rem' }}>
           <li>Par email : contact@breteuil-demenagement.fr</li>
-          <li>Par courrier : 20 Quai Duguay Trouin 35000 Rennes, France</li>
+          <li>Par courrier : Immeuble Atria, 8 Esplanade Compans Caffarelli, 31000 Toulouse</li>
         </ul>
 
         <h2 style={{ fontSize: '1.25rem', marginTop: '2rem', marginBottom: '0.75rem' }}>5. Cookies</h2>
@@ -118,7 +118,7 @@ export default function MentionsLegalesPage() {
         <p>
           Pour toute question concernant ces mentions légales, vous pouvez nous contacter :<br /><br />
           <strong>Breteuil Déménagement</strong><br />
-          20 Quai Duguay Trouin 35000 Rennes, France<br />
+          Immeuble Atria, 8 Esplanade Compans Caffarelli, 31000 Toulouse<br />
           Tél : 05 64 31 07 79<br />
           Email : contact@breteuil-demenagement.fr<br />
           Du lundi au vendredi : 8h - 19h
